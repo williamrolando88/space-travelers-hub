@@ -30,12 +30,8 @@ export const fetchingData = () => async (dispatch) => {
   const data = await fetch('https://api.spacexdata.com/v3/missions', {
     method: 'GET',
   });
-  try {
-    const missions = await data.json();
-    dispatch(storeMissions(missions));
-  } catch (error) {
-    console.error(error);
-  }
+  const missions = await data.json();
+  dispatch(storeMissions(missions));
 };
 
 // *Reducer function

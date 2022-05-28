@@ -25,12 +25,8 @@ export const fetchingData = () => async (dispatch) => {
   const data = await fetch('https://api.spacexdata.com/v3/rockets', {
     method: 'GET',
   });
-  try {
-    const rockets = await data.json();
-    dispatch(storeRockets(rockets));
-  } catch (error) {
-    console.error(error);
-  }
+  const rockets = await data.json();
+  dispatch(storeRockets(rockets));
 };
 
 // *Reducer function
